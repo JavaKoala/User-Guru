@@ -72,6 +72,9 @@
                                     <constraint firstAttribute="width" constant="57" id="90F-yx-5kV"/>
                                 </constraints>
                                 <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="signUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tMw-Mv-oAR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2k-Pz-S0V">
                                 <rect key="frame" x="70" y="346" width="46" height="30"/>
@@ -79,6 +82,9 @@
                                     <constraint firstAttribute="width" constant="46" id="LZu-WL-rz2"/>
                                 </constraints>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BWJ-pu-blJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -114,6 +120,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="websiteTextField" destination="LSI-Ve-Fwq" id="UeA-An-Z0Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
