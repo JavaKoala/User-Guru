@@ -42,9 +42,9 @@ class ViewController: UIViewController {
                                 result.setValue(websiteURL, forKey: "website")
                             }
                         }
-                        if (result.value(forKey: "useremail") as? String) != nil {
+                        if (result.value(forKey: "userEmail") as? String) != nil {
                             if let userEmail = userEmailTextField.text {
-                                result.setValue(userEmail, forKey: "useremail")
+                                result.setValue(userEmail, forKey: "userEmail")
                             }
                         }
                     }
@@ -54,7 +54,7 @@ class ViewController: UIViewController {
                         appSettings.setValue(websiteURL, forKey: "website")
                     }
                     if let userEmail = userEmailTextField.text {
-                        appSettings.setValue(userEmail, forKey: "useremail")
+                        appSettings.setValue(userEmail, forKey: "userEmail")
                     }
                 }
             } catch {
@@ -88,7 +88,7 @@ class ViewController: UIViewController {
                     if let websiteURL = result.value(forKey: "website") as? String {
                         websiteTextField.text = websiteURL
                     }
-                    if let userEmail = result.value(forKey: "useremail") as? String {
+                    if let userEmail = result.value(forKey: "userEmail") as? String {
                         userEmailTextField.text = userEmail
                     }
                 }
