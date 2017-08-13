@@ -31,8 +31,13 @@ class ViewController: UIViewController {
         do {
             let results = try context.fetch(request)
             if results.count > 0 {
-                print(results)
-                // To Do: Update AppSettings
+                for result in results as! [NSManagedObject] {
+                    if (result.value(forKey: "website") as? String) != nil {
+                        if let websiteURL = websiteTextField.text {
+                            result.setValue(websiteURL, forKey: "website")
+                        }
+                    }
+                }
             } else {
                 let appSettings = NSEntityDescription.insertNewObject(forEntityName: "AppSettings", into: context)
                 if let websiteURL = websiteTextField.text {
