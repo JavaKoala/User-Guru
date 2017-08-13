@@ -121,6 +121,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="userEmailTextField" destination="5q9-9c-RVw" id="tQV-MB-yUk"/>
+                        <outlet property="userMessage" destination="NFz-En-8eA" id="wG9-eX-QH3"/>
                         <outlet property="websiteTextField" destination="LSI-Ve-Fwq" id="UeA-An-Z0Z"/>
                     </connections>
                 </viewController>
