@@ -77,8 +77,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        websiteTextField.text = settings.getWebsite()
-        userEmailTextField.text = settings.getUserEmail()
+        if settings.getWebsite() != "" {
+            websiteTextField.text = settings.getWebsite()
+        }
+        
+        if settings.getUserEmail() != "" {
+            userEmailTextField.text = settings.getUserEmail()
+        }
     }
 
     override func didReceiveMemoryWarning() {
