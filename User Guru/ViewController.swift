@@ -11,6 +11,8 @@ import CoreData
 
 class ViewController: UIViewController {
 
+    let settings = AppSetting()
+
     @IBOutlet weak var websiteTextField: UITextField!
 
     @IBOutlet weak var userEmailTextField: UITextField!
@@ -74,28 +76,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // If the website and email address are in the database, populate them
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "AppSettings")
-        request.returnsObjectsAsFaults = false
-
-        do {
-            let results = try context.fetch(request)
-            if results.count > 0 {
-                for result in results as! [NSManagedObject] {
-                    if let websiteURL = result.value(forKey: "website") as? String {
-                        websiteTextField.text = websiteURL
-                    }
-                    if let userEmail = result.value(forKey: "userEmail") as? String {
-                        userEmailTextField.text = userEmail
-                    }
-                }
-            }
-        } catch {
-            // To Do: Handle Errors
-        }
+        
+        websiteTextField.text = settings.getWebsite()
+        userEmailTextField.text = settings.getUserEmail()
     }
 
     override func didReceiveMemoryWarning() {
