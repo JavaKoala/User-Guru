@@ -37,8 +37,8 @@ class AppSetting {
         }
     }
 
-    public func getWebsite()->String {
-        var website:String = ""
+    public func getSetting(settingName:String)->String {
+        var settingValue:String = ""
 
         let context = persistentContainer.viewContext
         request.returnsObjectsAsFaults = false
@@ -47,31 +47,8 @@ class AppSetting {
             let results = try context.fetch(request)
             if results.count > 0 {
                 for result in results as! [NSManagedObject] {
-                    if let websiteURL = result.value(forKey: "website") as? String {
-                        website = websiteURL
-                    }
-                }
-            }
-        } catch {
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror)")
-        }
-
-        return website
-    }
-
-    public func getUserEmail()->String {
-        var email:String = ""
-
-        let context = persistentContainer.viewContext
-        request.returnsObjectsAsFaults = false
-
-        do {
-            let results = try context.fetch(request)
-            if results.count > 0 {
-                for result in results as! [NSManagedObject] {
-                    if let userEmail = result.value(forKey: "userEmail") as? String {
-                        email = userEmail
+                    if let value = result.value(forKey: settingName) as? String {
+                        settingValue = value
                     }
                 }
             }
@@ -80,6 +57,6 @@ class AppSetting {
             fatalError("Unresolved error \(nserror)")
         }
         
-        return email
+        return settingValue
     }
 }

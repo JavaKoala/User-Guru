@@ -77,12 +77,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if settings.getWebsite() != "" {
-            websiteTextField.text = settings.getWebsite()
+        if settings.getSetting(settingName: "website") != "" {
+            websiteTextField.text = settings.getSetting(settingName: "website")
         }
         
-        if settings.getUserEmail() != "" {
-            userEmailTextField.text = settings.getUserEmail()
+        if settings.getSetting(settingName: "userEmail") != "" {
+            userEmailTextField.text = settings.getSetting(settingName: "userEmail")
         }
     }
 
