@@ -59,4 +59,27 @@ class AppSetting {
         
         return settingValue
     }
+
+    public func setSetting(settingName:String, settingValue:String) {
+        let context = persistentContainer.viewContext
+        request.propertiesToFetch = [settingName]
+        request.returnsDistinctResults = true
+        request.returnsObjectsAsFaults = false
+
+        do {
+            let results = try context.fetch(request)
+            if results.count > 0 {
+                for result in results as! [NSManagedObject] {
+                    result.setValue(settingValue, forKey: settingName)
+                }
+            } else {
+                let appSettings = NSEntityDescription.insertNewObject(forEntityName: "AppSettings", into: context)
+                appSettings.setValue(settingValue, forKey: settingName)
+            }
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror)")
+        }
+        saveContext()
+    }
 }
