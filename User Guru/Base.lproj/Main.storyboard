@@ -86,7 +86,7 @@
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BWJ-pu-blJ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaM-P5-xhW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaM-P5-xhW">
                                 <rect key="frame" x="16" y="158" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -141,6 +141,7 @@
                     <connections>
                         <outlet property="userEmailTextField" destination="5q9-9c-RVw" id="tQV-MB-yUk"/>
                         <outlet property="userMessage" destination="NFz-En-8eA" id="wG9-eX-QH3"/>
+                        <outlet property="userNameTextField" destination="yPL-dM-9uT" id="Z7c-fL-0Fl"/>
                         <outlet property="websiteTextField" destination="LSI-Ve-Fwq" id="UeA-An-Z0Z"/>
                     </connections>
                 </viewController>

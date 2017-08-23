@@ -13,6 +13,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var websiteTextField: UITextField!
 
+    @IBOutlet weak var userNameTextField: UITextField!
+
     @IBOutlet weak var userEmailTextField: UITextField!
 
     @IBOutlet weak var userMessage: UILabel!
@@ -25,12 +27,13 @@ class ViewController: UIViewController {
 
     @IBAction func signUpButton(_ sender: Any) {
 
-        if websiteTextField.hasText && userEmailTextField.hasText {
+        if websiteTextField.hasText && userNameTextField.hasText && userEmailTextField.hasText {
             let settings = AppSetting()
             settings.setSetting(settingName: "website", settingValue: websiteTextField.text!)
+            settings.setSetting(settingName: "userName", settingValue: userNameTextField.text!)
             settings.setSetting(settingName: "userEmail", settingValue: userEmailTextField.text!)
         } else {
-            userMessage.text = "Please enter a website, email, and password."
+            userMessage.text = "Please enter a website, user name and email"
         }
     }
     
@@ -44,6 +47,10 @@ class ViewController: UIViewController {
             websiteTextField.text = settings.getSetting(settingName: "website")
         }
         
+        if settings.getSetting(settingName: "userName") != "" {
+            userNameTextField.text = settings.getSetting(settingName: "userName")
+        }
+
         if settings.getSetting(settingName: "userEmail") != "" {
             userEmailTextField.text = settings.getSetting(settingName: "userEmail")
         }
