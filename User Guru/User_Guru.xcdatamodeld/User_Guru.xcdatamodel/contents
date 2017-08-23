@@ -3,9 +3,10 @@
     <entity name="AppSettings" representedClassName="AppSettings" syncable="YES" codeGenerationType="class">
         <attribute name="userEmail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userPassword" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AppSettings" positionX="-54" positionY="-9" width="128" height="90"/>
+        <element name="AppSettings" positionX="-54" positionY="-9" width="128" height="105"/>
     </elements>
 </model>

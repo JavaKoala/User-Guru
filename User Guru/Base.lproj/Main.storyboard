@@ -142,6 +142,7 @@
                         <outlet property="userEmailTextField" destination="5q9-9c-RVw" id="tQV-MB-yUk"/>
                         <outlet property="userMessage" destination="NFz-En-8eA" id="wG9-eX-QH3"/>
                         <outlet property="userNameTextField" destination="yPL-dM-9uT" id="Z7c-fL-0Fl"/>
+                        <outlet property="userPasswordTextField" destination="WZv-ik-vcs" id="T5F-df-BV5"/>
                         <outlet property="websiteTextField" destination="LSI-Ve-Fwq" id="UeA-An-Z0Z"/>
                     </connections>
                 </viewController>

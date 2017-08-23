@@ -17,6 +17,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var userEmailTextField: UITextField!
 
+    @IBOutlet weak var userPasswordTextField: UITextField!
+
     @IBOutlet weak var userMessage: UILabel!
     
     @IBAction func loginButton(_ sender: Any) {
@@ -27,13 +29,33 @@ class ViewController: UIViewController {
 
     @IBAction func signUpButton(_ sender: Any) {
 
-        if websiteTextField.hasText && userNameTextField.hasText && userEmailTextField.hasText {
+        if websiteTextField.hasText && userNameTextField.hasText && userEmailTextField.hasText && userPasswordTextField.hasText {
             let settings = AppSetting()
             settings.setSetting(settingName: "website", settingValue: websiteTextField.text!)
             settings.setSetting(settingName: "userName", settingValue: userNameTextField.text!)
             settings.setSetting(settingName: "userEmail", settingValue: userEmailTextField.text!)
+            settings.setSetting(settingName: "userPassword", settingValue: userPasswordTextField.text!)
+            var request = URLRequest(url: URL(string: websiteTextField.text! + "/api/v1/users")!)
+            request.httpMethod = "POST"
+            let postString = "name=" + userNameTextField.text! + "&email=" + userEmailTextField.text! + "&password=" + userPasswordTextField.text!
+            request.httpBody = postString.data(using: .utf8)
+            let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+                if let httpStatus = response as? HTTPURLResponse {
+                    if httpStatus.statusCode != 201 {
+                        print("statusCode should be 201, but is \(httpStatus.statusCode)")
+                        /* To Do:
+                        Have meaningful messages for the user when sign up does not work
+                        */
+                    } else {
+                        DispatchQueue.main.async {
+                            self.userMessage.text = "Please check your email to activate your account."
+                        }
+                    }
+                }
+            })
+            task.resume()
         } else {
-            userMessage.text = "Please enter a website, user name and email"
+            userMessage.text = "Please enter a website, user name, email and password"
         }
     }
     
